@@ -10,6 +10,7 @@ import UIKit
 
 class SecondViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   
   var imageURL: NSURL?
   var image: UIImage? {
@@ -17,6 +18,8 @@ class SecondViewController: UIViewController {
     set {
       imageView.image = newValue
       imageView.sizeToFit()
+      self.activityIndicator.stopAnimating()
+      self.activityIndicator.isHidden = true
     }
   }
   
@@ -24,12 +27,9 @@ class SecondViewController: UIViewController {
     imageURL = NSURL(string: "http://luxfon.com/images/201203/luxfon.com_4994.jpg")
     
     if let url = imageURL {
-      print("if 1")
-      print(url)
+      self.activityIndicator.startAnimating()
       let imageData = NSData(contentsOf: url as URL)
       if imageData != nil {
-        print("if 2")
-
         self.image = UIImage(data: imageData! as Data)
       }
     }

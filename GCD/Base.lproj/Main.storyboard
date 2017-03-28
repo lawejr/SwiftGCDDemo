@@ -79,15 +79,21 @@
                                     <constraint firstAttribute="height" constant="254" id="dfN-qK-zkv"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lzo-hX-35P">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lzo-hX-35P" firstAttribute="centerX" secondItem="HJz-QO-nXh" secondAttribute="centerX" id="0ml-4H-da0"/>
                             <constraint firstItem="iLq-8i-DPJ" firstAttribute="top" secondItem="s3c-zq-Bxo" secondAttribute="bottom" constant="142" id="YHP-F4-Vp0"/>
+                            <constraint firstItem="lzo-hX-35P" firstAttribute="centerY" secondItem="HJz-QO-nXh" secondAttribute="centerY" id="hXJ-Ex-exg"/>
                             <constraint firstItem="iLq-8i-DPJ" firstAttribute="centerX" secondItem="HJz-QO-nXh" secondAttribute="centerX" id="hyF-dq-au0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iLq-8i-DPJ" secondAttribute="trailing" constant="-16" id="rHr-mp-rV3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="lzo-hX-35P" id="YPR-oB-wqg"/>
                         <outlet property="imageView" destination="iLq-8i-DPJ" id="7s8-8B-1la"/>
                     </connections>
                 </viewController>
