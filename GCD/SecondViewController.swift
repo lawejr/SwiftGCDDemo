@@ -28,9 +28,16 @@ class SecondViewController: UIViewController {
     
     if let url = imageURL {
       self.activityIndicator.startAnimating()
-      let imageData = NSData(contentsOf: url as URL)
-      if imageData != nil {
-        self.image = UIImage(data: imageData! as Data)
+      
+      DispatchQueue.global().async {
+        let imageData = NSData(contentsOf: url as URL)
+        DispatchQueue.main.async {
+          if imageData != nil {
+            self.image = UIImage(data: imageData! as Data)
+          } else {
+            self.image = nil
+          }
+        }
       }
     }
   }
