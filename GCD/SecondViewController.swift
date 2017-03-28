@@ -46,6 +46,24 @@ class SecondViewController: UIViewController {
     super.viewDidLoad()
     
     fetchImage()
+    // Отложенный вызов кода через 5 сек
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { 
+      let ac = UIAlertController(title: "Зарегистрированы?", message: "Введите логин и пароль", preferredStyle: .alert)
+      let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
+      let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+      
+      ac.addAction(ok)
+      ac.addAction(cancel)
+      ac.addTextField { (usernameField) in
+        usernameField.placeholder = "Ваш логин"
+      }
+      ac.addTextField { (passwordField) in
+        passwordField.placeholder = "Ваш пароль"
+        passwordField.isSecureTextEntry = true
+      }
+      
+      self.present(ac, animated: true, completion: nil)
+    }
   }
   
   override func didReceiveMemoryWarning() {
